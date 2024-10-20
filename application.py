@@ -6,26 +6,26 @@ from model import db, Blacklist
 from config import Config
 
 # Inicializa la aplicación Flask
-app = Flask(__name__)
-app.config.from_object(Config)
+application = Flask(__name__)  # Cambia 'app' a 'application'
+application.config.from_object(Config)
 
 # Inicializa las extensiones
-db.init_app(app)
-jwt = JWTManager(app)
+db.init_app(application)
+jwt = JWTManager(application)
 
 # Crear las tablas de la base de datos si no existen
-with app.app_context():
+with application.app_context():
     db.create_all()
 
 # Ruta para autenticarse y obtener un token JWT
-@app.route('/login', methods=['POST'])
+@application.route('/login', methods=['POST'])
 def login():
     # En un caso real, verificarías el usuario y contraseña, aquí lo simplificamos
     access_token = create_access_token(identity='test_user')
     return jsonify(access_token=access_token), 200
 
 # Endpoint para agregar un email a la lista negra (POST)
-@app.route('/blacklists', methods=['POST'])
+@application.route('/blacklists', methods=['POST'])
 @jwt_required()
 def add_email_to_blacklist():
     data = request.get_json()
@@ -55,10 +55,10 @@ def add_email_to_blacklist():
     return jsonify({'message': 'Email added to blacklist'}), 201
 
 # Endpoint para consultar si un email está en la lista negra (GET)
-@app.route('/blacklists/<string:email>', methods=['GET'])
+@application.route('/blacklists/<string:email>', methods=['GET'])
 @jwt_required()
 def check_email_in_blacklist(email):
-    
+
     # Buscar si el email está en la lista negra
     blacklist_entry = Blacklist.query.filter_by(email=email).first()
 
@@ -72,4 +72,4 @@ def check_email_in_blacklist(email):
         return jsonify({'email': email, 'in_blacklist': False}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(port=5000, debug=True)
