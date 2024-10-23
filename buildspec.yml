@@ -1,9 +1,27 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
   pre_build:
     commands:
-      - pip install -r requirements.txt
+      - echo Running pre-build scripts...
+  build:
+    commands:
+      - echo Running unit tests...
+      - pytest --junitxml=results.xml
+  post_build:
+    commands:
+      - echo Build completed.
 artifacts:
   files:
     - '**/*'
+  discard-paths: yes
+reports:
+  unit_tests:
+    files:
+      - results.xml
