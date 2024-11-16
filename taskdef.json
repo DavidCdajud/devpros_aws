@@ -1,6 +1,6 @@
 {
 
-    "executionRoleArn": "arn:aws:iam::994617978174:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:ecs:us-east-1:182399691220:cluster/Cluster-app-Devpros-2",
     "containerDefinitions": [
       {
         "portMappings": [
@@ -10,9 +10,9 @@
             "containerPort": 5000
           }
         ],
-        "image": "182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest",
+        "image": "<IMAGE1_NAME>",
         "essential": true,
-        "name": "Container-app-python"
+        "name": "Cluster-app-Devpros-2"
       }
     ],
     "requiresCompatibilities": [
@@ -21,6 +21,6 @@
     "networkMode": "awsvpc",
     "cpu": "512",
     "memory": "1024",
-    "family": "Task-app-python"
+    "family": "Task-app-devpros:1"
   }
   
