@@ -1,6 +1,6 @@
 {
 
-    "executionRoleArn": "arn:aws:ecs:us-east-1:182399691220:cluster/Cluster-app-Devpros-2",
+    "executionRoleArn": "arn:aws:iam::182399691220:role/ecsCodeDeployRole",
     "containerDefinitions": [
       {
         "portMappings": [
