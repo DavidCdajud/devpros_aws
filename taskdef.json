@@ -12,7 +12,7 @@
         ],
         "image": "<IMAGE1_NAME>",
         "essential": true,
-        "name": "Cluster-app-Devpros-2"
+        "name": "Cluster-app-Devpros-4FinalFinal"
       }
     ],
     "requiresCompatibilities": [
@@ -21,6 +21,6 @@
     "networkMode": "awsvpc",
     "cpu": "512",
     "memory": "1024",
-    "family": "Task-app-devpros:1"
+    "family": "Service-app-devpros4-FinalFinalFinal"
   }
   
