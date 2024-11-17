@@ -37,4 +37,4 @@ secondary-artifacts:
       - taskdef.json
   ImageArtifact: 
     files:
-      - imagedefinitions.json
+      - imageDetail.json
