@@ -1,27 +1,40 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.9
-    commands:
-      - echo Installing dependencies...
-      - pip install -r requirements.txt
   pre_build:
     commands:
-      - echo Running pre-build scripts...
+      - echo "Loggin in to Amazon ECR..."
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 182399691220.dkr.ecr.us-east-1.amazonaws.com
+
   build:
     commands:
-      - echo Running unit tests...
-      - pytest --junitxml=results.xml
+      - echo "Build started on $(date)"
+      - echo "Building the Docker image..."
+      - docker build -t devpros_app .
+      - echo "Tagging the Docker image..."
+      - docker tag devpros_app:latest 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest
+
   post_build:
     commands:
-      - echo Build completed.
+      - echo "Pushing the Docker image to Amazon ECR..."
+      - docker push 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest
+      - echo "Writing Image Definitions file..."
+      - printf '[{"name":"Container-app-python", "imageUri":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest"}' > imageDetail.json
+      - echo "Contents of imagedefinitions.json:"
+      - cat imagedefinitions.json
+
 artifacts:
   files:
     - '**/*'
-  discard-paths: yes
-reports:
-  unit_tests:
+    - imagedefinitions.json
+    - imageDetail.json
+
+secondary-artifacts:
+  DefinitionArtifact:
     files:
-      - results.xml
+      - appspec.json
+      - taskdef.json
+  ImageArtifact: 
+    files:
+      - imagedefinitions.json

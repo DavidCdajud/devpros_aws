@@ -1,0 +1,26 @@
+{
+
+    "executionRoleArn": "arn:aws:ecs:us-east-1:182399691220:cluster/Cluster-app-Devpros-2",
+    "containerDefinitions": [
+      {
+        "portMappings": [
+          {
+            "hostPort": 5000,
+            "protocol": "tcp",
+            "containerPort": 5000
+          }
+        ],
+        "image": "<IMAGE1_NAME>",
+        "essential": true,
+        "name": "Cluster-app-Devpros-4FinalFinal"
+      }
+    ],
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "512",
+    "memory": "1024",
+    "family": "Service-app-devpros4-FinalFinalFinal"
+  }
+  

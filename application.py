@@ -72,4 +72,4 @@ def check_email_in_blacklist(email):
         return jsonify({'email': email, 'in_blacklist': False}), 404
 
 if __name__ == '__main__':
-    application.run(port=5000, debug=True)
+    application.run(port=5000, host='0.0.0.0')
