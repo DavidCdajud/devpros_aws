@@ -12,15 +12,15 @@ phases:
       - echo "Building the Docker image..."
       - docker build -t devpros_app .
       - echo "Tagging the Docker image..."
-      - docker tag devpros_app:latest 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest
+      - docker tag devpros_app:latest 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest
 
   post_build:
     commands:
       - echo "Pushing the Docker image to Amazon ECR..."
-      - docker push 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest
+      - docker push 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest
       - echo "Writing Image Definitions file..."
-      - printf '[{"name":"Container-app-python", "imageUri":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest"}]' > imagedefinitions.json
-      - printf '{"ImageURI":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_appi:latest"}' > imageDetail.json
+      - printf '[{"name":"Container-app-python", "imageUri":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest"}' > imageDetail.json
       - echo "Contents of imagedefinitions.json:"
       - cat imagedefinitions.json
 
