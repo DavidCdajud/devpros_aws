@@ -1,2 +1,2 @@
 # devpros_aws
-Devops course repository: AWS beanstalk
+Devops course repository: AWS beanstalkk
