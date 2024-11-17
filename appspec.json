@@ -9,6 +9,14 @@
           "LoadBalancerInfo": {
             "ContainerName": "Cluster-app-Devpros-4FinalFinal",
             "ContainerPort": 5000
+          },
+          "PlatformVersion": "LATEST",
+          "TrafficRoutingConfig": {
+            "Type": "TimeBasedLinear",
+            "TimeBasedLinear": {
+              "LinearPercentage": 10,
+              "LinearInterval": 1
+            }
           }
         }
       }
