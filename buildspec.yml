@@ -19,7 +19,7 @@ phases:
       - echo "Pushing the Docker image to Amazon ECR..."
       - docker push 182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest
       - echo "Writing Image Definitions file..."
-      - printf '[{"name":"cluster-17nov", "imageUri":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"ns-2ezh4kxm7of34ojw", "imageUri":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest"}]' > imagedefinitions.json
       - printf '{"ImageURI":"182399691220.dkr.ecr.us-east-1.amazonaws.com/devpros_app:latest"}' > imageDetail.json
       - echo "Contents of imagedefinitions.json:"
       - cat imagedefinitions.json
