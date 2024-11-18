@@ -70,6 +70,12 @@ def check_email_in_blacklist(email):
         }), 200
     else:
         return jsonify({'email': email, 'in_blacklist': False}), 404
+    
+
+@application.route('/', methods=['GET'])
+def health_check():
+    return "pong", 200
+
 
 if __name__ == '__main__':
     application.run(port=5000, host='0.0.0.0')
