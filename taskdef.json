@@ -9,7 +9,9 @@
             "protocol": "tcp",
             "containerPort": 5000
           }
+          
         ],
+
         "image": "<IMAGE1_NAME>",
         "essential": true,
         "name": "cluster-17nov"
