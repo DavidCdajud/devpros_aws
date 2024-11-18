@@ -7,7 +7,7 @@
         "Properties": {
           "TaskDefinition": "<TASK_DEFINITION>",
           "LoadBalancerInfo": {
-            "ContainerName": "Cluster-app-Devpros-4FinalFinal",
+            "ContainerName": "cluster-17nov",
             "ContainerPort": 5000
           }
         }
