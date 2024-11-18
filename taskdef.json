@@ -1,6 +1,6 @@
 {
 
-    "executionRoleArn": "arn:aws:iam::182399691220:role/ecsCodeDeployRole",
+    "executionRoleArn": "arn:aws:iam::182399691220:role/csTaskExecutionRole",
     "containerDefinitions": [
       {
         "portMappings": [
@@ -12,7 +12,7 @@
         ],
         "image": "<IMAGE1_NAME>",
         "essential": true,
-        "name": "Cluster-app-Devpros-4FinalFinal"
+        "name": "cluster-17nov"
       }
     ],
     "requiresCompatibilities": [
@@ -21,6 +21,6 @@
     "networkMode": "awsvpc",
     "cpu": "512",
     "memory": "1024",
-    "family": "Service-app-devpros4-FinalFinalFinal"
+    "family": "service-task-17nov"
   }
   
