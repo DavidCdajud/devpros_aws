@@ -1,6 +1,6 @@
 {
 
-    "executionRoleArn": "arn:aws:iam::182399691220:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::182399691220:role/csTaskExecutionRole",
     "containerDefinitions": [
       {
         "portMappings": [
@@ -14,7 +14,7 @@
         "essential": true,
         "name": "cluster-17nov"
       }
-
+      
     ],
     "requiresCompatibilities": [
       "FARGATE"
