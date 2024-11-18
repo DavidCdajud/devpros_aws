@@ -72,6 +72,8 @@ def check_email_in_blacklist(email):
         return jsonify({'email': email, 'in_blacklist': False}), 404
     
 
+
+
 @application.route('/', methods=['GET'])
 def health_check():
     return "pong", 200
